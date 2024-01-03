@@ -19,7 +19,7 @@ import org.junit.runner.RunWith;
         //it means the console output for cucumber test is having irrelevant information
         //when we se it to true, it simply removes all the irrelevant information
         monochrome = true,
-        tags = "Regression",
+        tags = "Amazon",
         plugin = {"html:target/cucumber.html", "pretty", "json:target/cucumber.json",
         "rerun:target/failed.txt","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 )

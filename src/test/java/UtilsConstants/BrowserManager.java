@@ -1,16 +1,19 @@
 package UtilsConstants;
+
 import com.microsoft.playwright.*;
-import UtilsConstants.UIConstants;
+
 import java.awt.*;
 
 public class BrowserManager {
 
-    private static Page page;
-    static {page=getNewBrowserContext().newPage();
+private static Page page;
+    static {
+        page=getNewBrowserContext().newPage();
         }
+
     public static Page getPage(){
         return page;
-    }
+        }
 
     public static BrowserContext getNewBrowserContext() {
         BrowserContext browserContext;
@@ -28,10 +31,10 @@ public class BrowserManager {
                 browserContext = playwright.chromium().launch(browserType.setChannel("chrome")).newContext(newContextOptions);
                 break;
             case "Firefox" :
-                browserContext = playwright.firefox().launch(browserType.setChannel("chrome")).newContext(newContextOptions);
+                browserContext = playwright.firefox().launch(browserType).newContext(newContextOptions);
                 break;
             case "Safari" :
-                browserContext = playwright.webkit().launch(browserType.setChannel("chrome")).newContext(newContextOptions);
+                browserContext = playwright.webkit().launch(browserType).newContext(newContextOptions);
                 break;
             default:
                 throw new RuntimeException("Invalid browserContext name");
